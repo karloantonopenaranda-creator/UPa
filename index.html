@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UPa — Find a place. Find your people.</title>
+  <meta name="description" content="Find rental spaces, meet property owners, and discover your kind of roommate with UPa.">
+  <meta name="theme-color" content="#73519a">
+  <meta name="application-name" content="UPa">
+  <link rel="icon" type="image/png" href="assets/brand/upa-app-icon.png">
+  <link rel="apple-touch-icon" href="assets/brand/upa-app-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/marketplace/base.css">
+  <link rel="stylesheet" href="marketplace.css">
+</head>
+<body>
+  <div class="login-root" id="login" hidden></div>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="shell website theme-community" id="shell" hidden>
+    <aside class="sidebar app-sidebar" id="sidebar"></aside>
+    <div class="nav-scrim" data-act="close-nav"></div>
+    <div class="main app-main">
+      <header class="topbar app-topbar" id="topbar"></header>
+      <nav class="inline-nav" id="mobile-nav" aria-label="Main navigation"></nav>
+      <main class="content app-content" id="content" tabindex="-1"></main>
+    </div>
+  </div>
+  <div class="modal-root" id="modal"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <script src="app.js"></script>
+  <script src="marketplace.js"></script>
+</body>
+</html>

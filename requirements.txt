@@ -1,0 +1,3 @@
+# DormCare Live Alerts uses only the Python standard library (Python 3.10 or newer).
+# socket, threading, sqlite3, json, argparse, unittest, subprocess: all ship with Python.
+# There is nothing to install with pip.

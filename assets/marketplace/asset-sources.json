@@ -1,0 +1,16 @@
+{
+  "purpose": "Local design-concept preview. Sample identities and rental properties.",
+  "photos": {
+    "living-room.jpg": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0",
+    "studio.jpg": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+    "bedroom.jpg": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+    "ana.jpg": "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
+    "miguel.jpg": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+    "james.jpg": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d"
+  },
+  "fonts": {
+    "manrope.ttf": "https://github.com/google/fonts/tree/main/ofl/manrope",
+    "sora.ttf": "https://github.com/google/fonts/tree/main/ofl/sora",
+    "nunito.ttf": "https://github.com/google/fonts/tree/main/ofl/nunito"
+  }
+}

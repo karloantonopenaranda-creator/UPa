@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DormCare Live Alerts mailroom</title>
+  <meta name="description" content="Live control room for the DormCare Live Alerts publish-subscribe system.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23134E3A'/%3E%3Crect x='7' y='10' width='18' height='12' rx='1.5' fill='%23F2B233'/%3E%3Cpath d='m7 10 9 7 9-7' fill='none' stroke='%23134E3A' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M5 14 16 5l11 9v13H5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+        <rect x="10" y="15" width="12" height="8" rx="1" fill="#F2B233"/>
+        <path d="m10 15 6 4.5 6-4.5" fill="none" stroke="#134E3A" stroke-width="1.6"/>
+      </svg>
+      <div>
+        <h1>DormCare Live Alerts</h1>
+        <p>Publish-subscribe demo for Casa Jaro Dormitory and Molo Bedspace Hub</p>
+      </div>
+    </div>
+    <p class="broker-state" id="broker-state" role="status"><span class="lamp"></span><span>Broker stopped</span></p>
+    <div class="bar-actions">
+      <button type="button" class="btn btn-primary" id="btn-demo">Start demo</button>
+      <button type="button" class="btn btn-light" id="btn-broker">Start broker</button>
+      <details class="faults">
+        <summary class="btn btn-ghost">Fault tests</summary>
+        <div class="menu" role="menu">
+          <button type="button" role="menuitem" data-fault="crash-before-ack">
+            <b>Juan crashes before ACK</b>
+            <span>Restarts Juan so he crashes right after his next notice, before acknowledging it. Publish a Casa Jaro notice, then press Start on his phone.</span>
+          </button>
+          <button type="button" role="menuitem" data-fault="lost-puback">
+            <b>Broker loses a PUBACK</b>
+            <span>Restarts the broker so it stores the next notice but drops its confirmation. The desk re-sends it and the broker spots the duplicate.</span>
+          </button>
+        </div>
+      </details>
+      <button type="button" class="btn btn-ghost" id="btn-reset">Reset</button>
+    </div>
+  </header>
+
+  <p class="banner" id="banner" hidden></p>
+
+  <main class="room">
+    <section class="desks-section" aria-labelledby="desks-h">
+      <h2 id="desks-h">Publishers</h2>
+      <p class="section-note">Desks send notices to the broker, never straight to a tenant.</p>
+      <div id="desks" class="desks"></div>
+    </section>
+
+    <section class="wall-section" aria-labelledby="wall-h">
+      <h2 id="wall-h">Broker</h2>
+      <p class="section-note">One pigeonhole per subscriber. Envelopes wait here, on disk, until that subscriber is back online.</p>
+      <div class="wall" id="wall">
+        <p class="wall-caption" id="wall-caption" hidden>Broker stopped. Waiting envelopes are kept safely in its database.</p>
+      </div>
+      <div class="log-head">
+        <h3>Broker log</h3>
+        <label class="check"><input type="checkbox" id="show-minor"> Show deliveries and ACKs</label>
+      </div>
+      <ol class="log" id="log"></ol>
+    </section>
+
+    <section class="phones-section" aria-labelledby="phones-h">
+      <h2 id="phones-h">Subscribers</h2>
+      <p class="section-note">Each phone is a separate subscriber process. Crash really kills it.</p>
+      <div id="phones" class="phones"></div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>
